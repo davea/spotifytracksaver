@@ -1,0 +1,17 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+redis-collections = "*"
+flask = "*"
+spotipy = {git = "https://github.com/plamere/spotipy.git", editable = true}
+
+
+[dev-packages]
+ipython = "*"
+pylint = "*"
