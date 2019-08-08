@@ -1,0 +1,5 @@
+*
+!/index.py
+!/Pipfile
+!/Pipfile.lock
+!/requirements.txt

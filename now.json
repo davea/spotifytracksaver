@@ -1,3 +1,21 @@
 {
-    "dotenv": true
+    "env": {
+        "SPOTIPY_CLIENT_ID": "@spotipy_client_id",
+        "SPOTIPY_CLIENT_SECRET": "@spotipy_client_secret",
+        "SPOTIFY_PLAYLIST": "@spotify_playlist",
+        "REDIS_DB": "@redis_db",
+        "REDIS_HOST": "@redis_host",
+        "REDIS_PORT": "@redis_port",
+        "REDIS_PASSWORD": "@redis_password"
+    },
+    "builds": [
+        {
+            "src": "index.py",
+            "use": "@now/python"
+        }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "/"}
+    ],
+    "version": 2
 }

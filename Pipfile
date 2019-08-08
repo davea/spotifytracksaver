@@ -9,7 +9,7 @@ name = "pypi"
 
 redis-collections = "*"
 flask = "*"
-spotipy = {git = "https://github.com/plamere/spotipy.git", editable = true}
+spotipy = {git = "https://github.com/plamere/spotipy.git"}
 
 
 [dev-packages]
