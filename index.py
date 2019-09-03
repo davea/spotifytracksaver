@@ -30,7 +30,10 @@ def index():
     if not now_playing or not now_playing.get('is_playing', False):
         return "Nothing playing."
 
-    return f"{now_playing['item']['artists'][0]['name']} - {now_playing['item']['name']}"
+    title = f"{now_playing['item']['artists'][0]['name']} - {now_playing['item']['name']}"
+    href = now_playing['item'].get('external_urls', {}).get('spotify')
+    if href:
+        return f"""<a href="{href}">{title}</a>"""
 
 
 @app.route('/login')
@@ -88,7 +91,11 @@ def save():
     except spotipy.SpotifyException:
         return redirect(url_for("login") + "?r=save")
 
-    return f"{actions}{' ' if actions else ''}{now_playing['item']['artists'][0]['name']} - {now_playing['item']['name']}"
+    title = f"{now_playing['item']['artists'][0]['name']} - {now_playing['item']['name']}"
+    href = now_playing['item'].get('external_urls', {}).get('spotify')
+    if href:
+        return f"""{actions}{' ' if actions else ''}<a href="{href}">{title}</a>"""
+
 
 
 def playlist_contains_track(spotify, username, playlist_id, track_id):
